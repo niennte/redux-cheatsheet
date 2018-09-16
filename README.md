@@ -29,8 +29,6 @@ npm info eslint-config-airbnb@latest peerDependencies --json | command sed 's/[\
 ```
 yarn test
 ```
-<<<<<<< HEAD
 
-Setup greatfully based on [JavaScript Stack from Scratch by Verekia](https://github.com/verekia/js-stack-from-scratch)
-=======
->>>>>>> Initial setup.
+Setup thankfully based on [JavaScript Stack from Scratch by Verekia](https://github.com/verekia/js-stack-from-scratch)
+

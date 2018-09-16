@@ -1,15 +1,14 @@
-/* eslint-disable no-console */
 
-// class imports
-import Dog from './Dog';
 
-const str = 'ES6 (interpreted on the fly by Babel-Node)';
+const counter = (state = 0, action) => {
+  switch (action.type) {
+    case 'INCREMENT':
+      return state + 1;
+    case 'DECREMENT':
+      return state - 1;
+    default:
+      return state;
+  }
+};
 
-// template strings
-console.log(`Hello ${str}`);
-
-// arrow func
-const Toby = new Dog('Toby');
-((text) => {
-  console.log(text);
-})(Toby.bark());
+module.exports = counter;
