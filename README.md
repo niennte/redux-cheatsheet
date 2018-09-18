@@ -44,7 +44,14 @@ $ yarn dev:wds
 ```
 webpack://./src
 ```
-
+___
+*- note: after adding React, make sure generated files are excluded in IDE:
+```$xslt
+/coverage
+/dist
+/lib
+/node_modules
+```
 
 
 Setup thankfully based on [JavaScript Stack from Scratch by Verekia](https://github.com/verekia/js-stack-from-scratch)
