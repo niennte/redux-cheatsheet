@@ -30,5 +30,21 @@ npm info eslint-config-airbnb@latest peerDependencies --json | command sed 's/[\
 yarn test
 ```
 
-Setup thankfully based on [JavaScript Stack from Scratch by Verekia](https://github.com/verekia/js-stack-from-scratch)
+___
 
+- webpack, dev environment
+```
+$ yarn start
+```
+in another tab:
+```
+$ yarn dev:wds
+```
+*- note: to find source maps, in Chrome, switch "Sources" tab to "Page" in the file tree:
+```
+webpack://./src
+```
+
+
+
+Setup thankfully based on [JavaScript Stack from Scratch by Verekia](https://github.com/verekia/js-stack-from-scratch)
