@@ -24,7 +24,7 @@ const AddTodo = ({ dispatch, todoCounter }: Props) => {
       <button
         type="button"
         onClick={() => {
-          dispatch(addTodo(input.value, todoCounter));
+          dispatch(addTodo({ text: input.value, id: todoCounter }));
           dispatch(incrementTodo());
           input.value = '';
         }}

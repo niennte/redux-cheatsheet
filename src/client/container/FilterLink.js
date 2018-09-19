@@ -16,7 +16,7 @@ const mapDispatchToLinkProps = (
   ownProps,
 ) => ({
   onClick: () => {
-    dispatch(setVisibilityFilter(ownProps.filter));
+    dispatch(setVisibilityFilter({ filter: ownProps.filter }));
   },
 });
 

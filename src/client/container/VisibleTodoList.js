@@ -31,7 +31,7 @@ const mapStateToTodoListProps = state => ({
 // maps Redux store dispatch to list of components
 const mapDispatchToTodoListProps = dispatch => ({
   onTodoClick: (id) => {
-    dispatch(toggleTodo(id));
+    dispatch(toggleTodo({ id }));
   },
 });
 
