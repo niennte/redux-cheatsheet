@@ -1,6 +1,6 @@
 import { createAction } from 'redux-actions';
 
-export const REMOVE_TODO = 'ADD_TODO';
+export const REMOVE_TODO = 'REMOVE_TODO';
 
 const removeTodo = createAction(REMOVE_TODO);
 

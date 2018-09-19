@@ -1,25 +1,27 @@
 import React from 'react';
 
 import FilterLink from '../container/FilterLink';
+import { SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED } from '../container/VisibleTodoList';
+
 
 const Footer = () => (
   <p>
     Show:
     {' '}
     <FilterLink
-      filter="SHOW_ALL"
+      filter={SHOW_ALL}
     >
       All
     </FilterLink>
     {' '}
     <FilterLink
-      filter="SHOW_ACTIVE"
+      filter={SHOW_ACTIVE}
     >
       Active
     </FilterLink>
     {' '}
     <FilterLink
-      filter="SHOW_COMPLETED"
+      filter={SHOW_COMPLETED}
     >
       Completed
     </FilterLink>

@@ -3,15 +3,16 @@
 import React from 'react';
 
 type Props = {
-  onClick: Function,
+  onToggle: Function,
+  onRemove: Function,
   completed: boolean,
   text: string,
 };
 
-const Todo = (({ onClick, completed, text }: Props) => (
-  // eslint-disable-next-line
+const Todo = (({
+  onToggle, onRemove, completed, text,
+}: Props) => (
   <li
-    onClick={onClick}
     style={{
       textDecoration:
             completed
@@ -19,7 +20,16 @@ const Todo = (({ onClick, completed, text }: Props) => (
               : 'none',
     }}
   >
-    { text }
+    {/* eslint-disable-next-line */}
+    <span onClick={onToggle}>
+      { text }
+    </span>
+    <button
+      type="button"
+      onClick={onRemove}
+    >
+      x
+    </button>
   </li>
 ));
 

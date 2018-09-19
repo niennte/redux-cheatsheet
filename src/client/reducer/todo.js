@@ -1,5 +1,6 @@
 import { ADD_TODO } from '../action/addTodo';
 import { TOGGLE_TODO } from '../action/toggleTodo';
+import { REMOVE_TODO } from '../action/removeTodo';
 
 // Reducer composition pattern
 // state refers to individual todo
@@ -18,6 +19,11 @@ const todo = (state = {}, action) => {
       return Object.assign({}, state, {
         completed: !state.completed,
       });
+    case REMOVE_TODO:
+      if (state.id !== action.payload.id) {
+        return state;
+      }
+      return null;
     default:
       return state;
   }

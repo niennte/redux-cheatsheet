@@ -10,8 +10,8 @@ const todos = (state = [], action) => {
       return [...state, todo(undefined, action)];
     case TOGGLE_TODO: // array.map returns a new array
       return state.map(t => todo(t, action));
-    case REMOVE_TODO:
-      return [];
+    case REMOVE_TODO: // array.filter returns a new array
+      return state.filter(t => (t.id !== action.payload.id));
     default:
       return state;
   }

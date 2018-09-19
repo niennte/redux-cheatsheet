@@ -5,17 +5,19 @@ import React from 'react';
 import Todo from './Todo';
 
 type Props = {
-  onTodoClick: Function,
+  onTodoToggle: Function,
+  onTodoRemove: Function,
   todos: Array<Object>,
 };
 
-const TodoList = (({ onTodoClick, todos }: Props) => (
+const TodoList = (({ onTodoToggle, onTodoRemove, todos }: Props) => (
   <ul>
     {todos.map(todo => (
       <Todo
         key={todo.id}
         {...todo}
-        onClick={() => onTodoClick(todo.id)}
+        onToggle={() => onTodoToggle(todo.id)}
+        onRemove={() => onTodoRemove(todo.id)}
       />
     ))}
   </ul>
