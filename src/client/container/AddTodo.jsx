@@ -11,7 +11,6 @@ type Props = {
   todoCounter: number
 };
 
-// maps redux store state to components
 const mapStateToAddTodoProps = state => ({
   todoCounter: state.todoCounter,
 });

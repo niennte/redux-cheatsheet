@@ -24,8 +24,6 @@ const getVisibleTodos = (
   }
 };
 
-
-// maps Redux store state to components
 const mapStateToTodoListProps = state => ({
   todos: getVisibleTodos(
     state.todos,
@@ -33,7 +31,6 @@ const mapStateToTodoListProps = state => ({
   ),
 });
 
-// maps Redux store dispatch to list of components
 const mapDispatchToTodoListProps = dispatch => ({
   onTodoToggle: (id) => {
     dispatch(toggleTodo({ id }));

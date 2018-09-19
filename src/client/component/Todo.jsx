@@ -2,6 +2,9 @@
 
 import React from 'react';
 
+import TodoLabel from './TodoLabel';
+import TodoRemoveButton from './TodoRemoveButton';
+
 type Props = {
   onToggle: Function,
   onRemove: Function,
@@ -9,27 +12,18 @@ type Props = {
   text: string,
 };
 
+const styleCompleted = (applies: boolean) => ({
+  textDecoration: applies
+    ? 'line-through'
+    : 'none',
+});
+
 const Todo = (({
   onToggle, onRemove, completed, text,
 }: Props) => (
-  <li
-    style={{
-      textDecoration:
-            completed
-              ? 'line-through'
-              : 'none',
-    }}
-  >
-    {/* eslint-disable-next-line */}
-    <span onClick={onToggle}>
-      { text }
-    </span>
-    <button
-      type="button"
-      onClick={onRemove}
-    >
-      x
-    </button>
+  <li style={styleCompleted(completed)}>
+    <TodoLabel onClick={onToggle} text={text} />
+    <TodoRemoveButton onClick={onRemove} />
   </li>
 ));
 
