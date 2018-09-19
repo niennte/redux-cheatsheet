@@ -1,14 +1,14 @@
 import React from 'react';
-import HelloButton from './container/hello-button';
-import Message from './container/message';
-import { APP_NAME } from '../shared/config';
+import AddTodo from './container/AddTodo';
+import VisibleTodoList from './container/VisibleTodoList';
+import Footer from './component/Footer';
 
-const App = () => (
+const AppTodo = () => (
   <div>
-    <h1>{ APP_NAME }</h1>
-    <Message />
-    <HelloButton />
+    <AddTodo />
+    <VisibleTodoList />
+    <Footer />
   </div>
 );
 
-export default App;
+export default AppTodo;
