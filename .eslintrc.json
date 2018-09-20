@@ -14,5 +14,8 @@
     "browser": true,
     "jest": true
   },
-  "parser": "babel-eslint"
+  "parser": "babel-eslint",
+  "settings": {
+    "polyfills": ["fetch"]
+  }
 }
