@@ -10,6 +10,9 @@ const actionCreators = createActions({
       REMOVE: undefined,
       SET_VISIBILITY_FILTER: undefined,
     },
+    HELLO: {
+      SAY: undefined,
+    },
   },
 });
 
