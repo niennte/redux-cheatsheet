@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 
 import TodoList from '../component/TodoList';
-import toggleTodo from '../action/toggleTodo';
-import removeTodo from '../action/removeTodo';
+import actionCreators from '../action/index';
 
 export const SHOW_ALL = 'SHOW_ALL';
 export const SHOW_COMPLETED = 'SHOW_COMPLETED';
@@ -33,10 +32,10 @@ const mapStateToTodoListProps = state => ({
 
 const mapDispatchToTodoListProps = dispatch => ({
   onTodoToggle: (id) => {
-    dispatch(toggleTodo({ id }));
+    dispatch(actionCreators.app.todo.toggle({ id }));
   },
   onTodoRemove: (id) => {
-    dispatch(removeTodo({ id }));
+    dispatch(actionCreators.app.todo.remove({ id }));
   },
 });
 

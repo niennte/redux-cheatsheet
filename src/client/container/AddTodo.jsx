@@ -3,8 +3,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import addTodo from '../action/addTodo';
-import incrementTodo from '../action/incrementTodo';
+import actionCreators from '../action/index';
 
 type Props = {
   dispatch: Function,
@@ -23,8 +22,8 @@ const AddTodo = ({ dispatch, todoCounter }: Props) => {
       <button
         type="button"
         onClick={() => {
-          dispatch(addTodo({ text: input.value, id: todoCounter }));
-          dispatch(incrementTodo());
+          dispatch(actionCreators.app.todo.add({ text: input.value, id: todoCounter }));
+          dispatch(actionCreators.app.todo.increment());
           input.value = '';
         }}
       >
