@@ -7,7 +7,7 @@ import Todo from './Todo';
 type Props = {
   onTodoToggle: Function,
   onTodoRemove: Function,
-  todos: Array<Object>,
+  todos: List,
 };
 
 const TodoList = (({ onTodoToggle, onTodoRemove, todos }: Props) => (

@@ -1,6 +1,13 @@
+// @flow
+
+import Immutable from 'immutable';
+import type { fromJS as Immut } from 'immutable';
+
+const initialState = Immutable.fromJS({});
+
 // Reducer composition pattern
 // state refers to individual todo
-const todo = (state = {}, action) => {
+const todo = (state: Immut = initialState, action: { type: string, payload: any }) => {
   switch (action.type) {
     case 'APP/TODO/ADD':
       return {
