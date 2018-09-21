@@ -7,7 +7,7 @@ import AddTodo from '../../container/AddTodo';
 import VisibleTodoList from '../../container/VisibleTodoList';
 import Footer from '../Footer';
 
-const title = 'World famous Todo List';
+const title = 'Todo List';
 
 const TodoListPage = () => (
   <Fragment>
