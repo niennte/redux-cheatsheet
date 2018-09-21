@@ -15,11 +15,6 @@ const todo = (state = {}, action) => {
       return Object.assign({}, state, {
         completed: !state.completed,
       });
-    case 'APP/TODO/REMOVE':
-      if (state.id !== action.payload.id) {
-        return state;
-      }
-      return null;
     default:
       return state;
   }
