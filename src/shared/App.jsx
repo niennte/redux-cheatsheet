@@ -3,6 +3,7 @@
 import React, { Fragment } from 'react';
 import { Switch } from 'react-router';
 import { Route } from 'react-router-dom';
+import Helmet from 'react-helmet';
 
 import { APP_NAME } from './config';
 
@@ -21,7 +22,7 @@ import {
 
 const AppTodo = () => (
   <Fragment>
-
+    <Helmet titleTemplate={`%s | ${APP_NAME}`} defaultTitle={APP_NAME} />
     <div>
       <h1>{APP_NAME}</h1>
       <Nav />
