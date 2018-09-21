@@ -4,7 +4,7 @@ import React, { Fragment } from 'react';
 import { Switch } from 'react-router';
 import { Route } from 'react-router-dom';
 
-import { APP_NAME } from '../shared/config';
+import { APP_NAME } from './config';
 
 import Nav from './component/nav';
 import HomePage from './component/page/home';
@@ -17,7 +17,7 @@ import {
   HELLO_PAGE_ROUTE,
   HELLO_ASYNC_PAGE_ROUTE,
   TODO_LIST_PAGE_ROUTE,
-} from '../shared/routes';
+} from './routes';
 
 const AppTodo = () => (
   <Fragment>

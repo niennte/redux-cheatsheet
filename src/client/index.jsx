@@ -10,16 +10,19 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { BrowserRouter } from 'react-router-dom';
 
-import reducers from './reducer';
-import App from './App';
+import reducers from '../shared/reducer';
+import App from '../shared/App';
 import { APP_CONTAINER_SELECTOR } from '../shared/config';
 import { isProd } from '../shared/util';
 
-// eslint-disable-next-line no-underscore-dangle
+/* eslint-disable no-underscore-dangle */
 const composeEnhancers = (isProd ? null : window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
+const preloadedState = window.__PRELOADED_STATE__;
+/* eslint-enable no-underscore-dangle */
 
 const store = createStore(
   reducers,
+  preloadedState,
   composeEnhancers(applyMiddleware(thunkMiddleware)),
 );
 
@@ -40,9 +43,9 @@ ReactDOM.render(wrapApp(App, store), rootEl);
 // Enable HMR
 if (module.hot) {
   // flow-disable-next-line
-  module.hot.accept('./App', () => {
+  module.hot.accept('../shared/App', () => {
     // eslint-disable-next-line global-require
-    const NextApp = require('./App').default;
+    const NextApp = require('../shared/App').default;
     ReactDOM.render(wrapApp(NextApp), rootEl);
   });
 }

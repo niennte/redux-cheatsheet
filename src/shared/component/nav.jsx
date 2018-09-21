@@ -8,7 +8,7 @@ import {
   HELLO_ASYNC_PAGE_ROUTE,
   TODO_LIST_PAGE_ROUTE,
   NOT_FOUND_DEMO_PAGE_ROUTE,
-} from '../../shared/routes';
+} from '../routes';
 
 const Nav = () => (
   <nav>
