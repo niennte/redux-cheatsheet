@@ -3,7 +3,7 @@
 import { createActions } from 'redux-actions';
 import 'isomorphic-fetch';
 
-import { helloEndpointRoute } from '../../shared/routes';
+import { helloEndpointRoute } from '../routes';
 
 const actionCreators = createActions({
   APP: {

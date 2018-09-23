@@ -13,7 +13,7 @@ import setUpSocket from './socket';
 
 import reducers from '../shared/reducer';
 import App from '../shared/App';
-import { APP_CONTAINER_SELECTOR } from '../shared/config';
+import { APP_CONTAINER_SELECTOR, JSS_SSR_SELECTOR } from '../shared/config';
 import { isProd } from '../shared/util';
 
 /* eslint-disable no-underscore-dangle */
@@ -51,5 +51,8 @@ if (module.hot) {
   });
 }
 
-setUpSocket(store);
+const jssServerSide = document.querySelector(JSS_SSR_SELECTOR);
+// flow-disable-next-line
+jssServerSide.parentNode.removeChild(jssServerSide);
 
+setUpSocket(store);

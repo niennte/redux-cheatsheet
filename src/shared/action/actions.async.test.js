@@ -4,7 +4,7 @@ import thunkMiddleware from 'redux-thunk';
 
 import actionCreators, { sayHelloAsync } from './index';
 
-import { helloEndpointRoute } from '../../shared/routes';
+import { helloEndpointRoute } from '../routes';
 
 const mockStore = configureMockStore([thunkMiddleware]);
 

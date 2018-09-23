@@ -20,7 +20,7 @@ import {
   TODO_LIST_PAGE_ROUTE,
 } from './routes';
 
-const AppTodo = () => (
+const App = () => (
   <Fragment>
     <Helmet titleTemplate={`%s | ${APP_NAME}`} defaultTitle={APP_NAME} />
     <div>
@@ -38,4 +38,4 @@ const AppTodo = () => (
   </Fragment>
 );
 
-export default AppTodo;
+export default App;
