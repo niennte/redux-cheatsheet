@@ -49,6 +49,15 @@ const setUpSocket = (io: Object) => {
       console.log(`[socket.io] Client ${socket.id}: ${clientMessage}`);
     });
 
+    socket.on('chat message', (msg) => {
+      const chatMessage = {
+        user: socket.id,
+        message: msg,
+      };
+      console.log(`chat message: ${chatMessage}`);
+      io.emit('chat message', chatMessage);
+    });
+
     socket.on(IO_DISCONNECT, () => {
       console.log(`[socket.io] Client ${socket.id} disconnected.`);
     });

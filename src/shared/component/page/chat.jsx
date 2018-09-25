@@ -3,6 +3,9 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
+import ChatForm from '../../container/chat/form';
+import ChatMessages from '../../container/chat/messages';
+
 const title = 'Chat Page';
 
 const ChatPage = () => (
@@ -15,7 +18,8 @@ const ChatPage = () => (
       ]}
     />
     <h2>{title}</h2>
-    <p>Chat goes here</p>
+    <ChatMessages />
+    <ChatForm />
   </div>
 );
 

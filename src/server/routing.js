@@ -13,6 +13,7 @@ import {
   helloPage,
   helloAsyncPage,
   todoListPage,
+  chatPage,
   helloEndpoint,
 } from './controller';
 
@@ -21,6 +22,7 @@ import {
   HELLO_PAGE_ROUTE,
   HELLO_ASYNC_PAGE_ROUTE,
   TODO_LIST_PAGE_ROUTE,
+  CHAT_PAGE_ROUTE,
   helloEndpointRoute,
 } from '../shared/routes';
 
@@ -41,6 +43,10 @@ export default (app: Object) => {
 
   app.get(TODO_LIST_PAGE_ROUTE, (req, res) => {
     res.send(renderApp(req.url, todoListPage()));
+  });
+
+  app.get(CHAT_PAGE_ROUTE, (req, res) => {
+    res.send(renderApp(req.url, chatPage()));
   });
 
   app.get(helloEndpointRoute(), (req, res) => {

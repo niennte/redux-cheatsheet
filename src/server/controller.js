@@ -17,11 +17,17 @@ export const helloAsyncPage = () => ({
 });
 
 export const todoListPage = () => ({
-  todoCounter: 5,
+  todoCounter: 0,
   todos: [],
-  visibilityFilter: 'SHOW_ACTIVE',
+  visibilityFilter: 'SHOW_ALL',
 });
 
 export const helloEndpoint = (num: number) => ({
   serverMessage: `Hello from the server! (received ${num})`,
+});
+
+export const chatPage = () => ({
+  user: {
+    id: 'not connected',
+  },
 });

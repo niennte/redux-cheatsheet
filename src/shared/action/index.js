@@ -4,6 +4,7 @@ import { createActions } from 'redux-actions';
 import 'isomorphic-fetch';
 
 import { helloEndpointRoute } from '../routes';
+import { socket } from '../../client/socket';
 
 const actionCreators = createActions({
   APP: {
@@ -23,6 +24,11 @@ const actionCreators = createActions({
         FAILURE: undefined,
       },
     },
+    CHAT: {
+      CONNECT: undefined,
+      USER: undefined,
+      ADD_MESSAGE: undefined,
+    },
   },
 });
 
@@ -40,6 +46,10 @@ export const sayHelloAsync = (num: number) => (dispatch: Function) => {
     .catch(() => {
       dispatch(actionCreators.app.hello.async.failure());
     });
+};
+
+export const emitMessage = (message: string) => () => {
+  socket.emit('chat message', message);
 };
 
 export default actionCreators;
