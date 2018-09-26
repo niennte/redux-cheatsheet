@@ -45,6 +45,13 @@ const setUpSocket = (store: Object) => {
       user: serverMessage.user,
     }));
   });
+
+  socket.on('is typing', (serverMessage) => {
+    store.dispatch(actionCreators.app.chat.intelocutorTyping({
+      status: serverMessage.status,
+      user: serverMessage.user,
+    }));
+  });
 };
 /* eslint-enable no-console */
 

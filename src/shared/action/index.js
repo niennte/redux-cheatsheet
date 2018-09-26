@@ -28,6 +28,7 @@ const actionCreators = createActions({
       CONNECT: undefined,
       USER: undefined,
       ADD_MESSAGE: undefined,
+      INTELOCUTOR_TYPING: undefined,
     },
   },
 });
@@ -50,6 +51,11 @@ export const sayHelloAsync = (num: number) => (dispatch: Function) => {
 
 export const emitMessage = (message: string) => () => {
   socket.emit('chat message', message);
+  socket.emit('is typing', { status: false });
+};
+
+export const emitIsTyping = (status: boolean) => () => {
+  socket.emit('is typing', { status });
 };
 
 export default actionCreators;

@@ -16,20 +16,33 @@ const styles = {
     fontStyle: 'italic',
     color: 'green',
   },
+  isTyping: {
+    fontStyle: 'italic',
+    color: 'darkgrey',
+  },
 };
 
 type Props = {
   messages: List,
   userId: string,
   classes: Object,
+  interlocutor: Object,
 };
 
 const mapStateToProps = state => ({
   messages: state.chat,
   userId: state.user.id,
+  interlocutor: {
+    user: state.interlocutor.user,
+    isTyping: state.interlocutor.status,
+  },
 });
 
-const ChatMessages = ({ messages, userId, classes }: Props) => (
+const ChatMessages = (
+  {
+    messages, userId, interlocutor, classes,
+  }: Props,
+) => (
   <div>
     <ul id="messages">
       {messages.map((message) => {
@@ -42,6 +55,12 @@ const ChatMessages = ({ messages, userId, classes }: Props) => (
           </li>
         );
       })}
+      { interlocutor.isTyping && (
+        <li className={`${classes.user} ${classes.isTyping}`}>
+          <strong>{`${interlocutor.user}: `}</strong>
+          ...
+        </li>
+      )}
     </ul>
   </div>
 );

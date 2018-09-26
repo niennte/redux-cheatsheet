@@ -7,6 +7,7 @@ import helloMessage from './helloMessage';
 import helloMessageAsync from './helloMessageAsync';
 import chat from './chat';
 import user from './user';
+import interlocutor from './interlocutor';
 
 
 const reducers = combineReducers({
@@ -17,6 +18,7 @@ const reducers = combineReducers({
   helloMessageAsync,
   chat,
   user,
+  interlocutor,
 });
 
 export default reducers;

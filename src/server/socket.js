@@ -29,6 +29,7 @@ import {
 const setUpSocket = (io: Object) => {
   io.on(IO_CONNECT, (socket) => {
     console.log(`[socket.io] Client ${socket.id} connected.`);
+    console.log(socket.adapter.sids);
 
     // Error reporting
     socket.on('error', (err) => {
@@ -56,6 +57,14 @@ const setUpSocket = (io: Object) => {
       };
       console.log(`chat message: ${chatMessage}`);
       io.emit('chat message', chatMessage);
+    });
+
+    socket.on('is typing', (msg) => {
+      const chatMessage = {
+        user: socket.id,
+        status: msg.status,
+      };
+      socket.broadcast.emit('is typing', chatMessage);
     });
 
     socket.on(IO_DISCONNECT, () => {
