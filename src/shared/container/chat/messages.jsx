@@ -25,6 +25,7 @@ const styles = {
 type Props = {
   messages: List,
   userId: string,
+  userName: ?string,
   classes: Object,
   interlocutor: Object,
 };
@@ -32,8 +33,10 @@ type Props = {
 const mapStateToProps = state => ({
   messages: state.chat,
   userId: state.user.id,
+  userName: state.user.userName,
   interlocutor: {
     user: state.interlocutor.user,
+    userName: state.interlocutor.userName,
     isTyping: state.interlocutor.status,
   },
 });
@@ -47,7 +50,7 @@ const ChatMessages = (
     <ul id="messages">
       {messages.map((message) => {
         const userCSS = message.user === userId ? classes.ownSelf : classes.other;
-        const userName = message.user === userId ? 'You' : message.user;
+        const userName = message.user === userId ? 'You' : message.userName;
         return (
           <li key={message.id} className={`${classes.user} ${userCSS}`}>
             <strong>{`${userName}: `}</strong>
@@ -57,7 +60,7 @@ const ChatMessages = (
       })}
       { interlocutor.isTyping && (
         <li className={`${classes.user} ${classes.isTyping}`}>
-          <strong>{`${interlocutor.user}: `}</strong>
+          <strong>{`${interlocutor.userName}: `}</strong>
           ...
         </li>
       )}

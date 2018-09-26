@@ -50,6 +50,7 @@ const setUpSocket = (store: Object) => {
     store.dispatch(actionCreators.app.chat.intelocutorTyping({
       status: serverMessage.status,
       user: serverMessage.user,
+      userName: serverMessage.userName,
     }));
   });
 };

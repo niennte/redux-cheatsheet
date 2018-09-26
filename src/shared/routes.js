@@ -10,3 +10,5 @@ export const CHAT_PAGE_ROUTE = '/chat';
 
 // eslint-disable-next-line import/prefer-default-export
 export const helloEndpointRoute = (num: ?number) => `/ajax/hello/${num || ':num'}`;
+
+export const loginEndpointRoute = (userName: ?string) => `/ajax/login/${userName || ':userName'}`;

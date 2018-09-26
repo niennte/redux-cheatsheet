@@ -22,12 +22,19 @@ export const todoListPage = () => ({
   visibilityFilter: 'SHOW_ALL',
 });
 
+export const chatPage = () => ({
+  loggedIn: false,
+});
+
 export const helloEndpoint = (num: number) => ({
   serverMessage: `Hello from the server! (received ${num})`,
 });
 
-export const chatPage = () => ({
-  user: {
-    id: 'not connected',
-  },
-});
+export const loginEndpoint = (userName: string) => {
+  return ({
+    login: {
+      userName,
+      loggedIn: true,
+    },
+  });
+};

@@ -7,16 +7,18 @@ import { emitMessage, emitIsTyping } from '../../action/index';
 
 type Props = {
   dispatch: Function,
+  userName: ?string,
 };
 
-const mapStateToAddTodoProps = state => ({
-  todoCounter: state.todoCounter,
+const mapStateToProps = state => ({
+  userName: state.user.userName,
 });
 
 class ChatForm extends React.Component<Props> {
   constructor(props) {
     super(props);
     this.state = {
+      userName: props.userName || '',
       userIsTyping: false,
       timeout: null,
     };
@@ -26,8 +28,12 @@ class ChatForm extends React.Component<Props> {
   }
 
   emitCancelUserIsTyping() {
+    const { userName } = this.state;
     if (!this.state.userIsTyping) {
-      this.props.dispatch(emitIsTyping(false));
+      this.props.dispatch(emitIsTyping({
+        status: false,
+        userName,
+      }));
     }
   }
 
@@ -40,13 +46,16 @@ class ChatForm extends React.Component<Props> {
   }
 
   handleKeyDown() {
+    const { userName } = this.state;
     window.clearTimeout(this.state.timeout);
     this.setState({
       userIsTyping: true,
-      timeout: null
+      timeout: null,
     });
-    this.props.dispatch(emitIsTyping(true));
-
+    this.props.dispatch(emitIsTyping({
+      status: true,
+      userName,
+    }));
   }
 
   handleSubmit() {
@@ -58,6 +67,7 @@ class ChatForm extends React.Component<Props> {
 
   render() {
     const { dispatch } = this.props;
+    const { userName } = this.state;
     let input;
     return (
       <div>
@@ -67,7 +77,10 @@ class ChatForm extends React.Component<Props> {
           className="fixed-bottom bg-light p-1"
           onSubmit={(e) => {
             e.preventDefault();
-            dispatch(emitMessage(input.value));
+            dispatch(emitMessage({
+              userName,
+              message: input.value,
+            }));
             input.value = '';
           }}
         >
@@ -101,4 +114,4 @@ class ChatForm extends React.Component<Props> {
   }
 }
 
-export default connect(mapStateToAddTodoProps)(ChatForm);
+export default connect(mapStateToProps)(ChatForm);

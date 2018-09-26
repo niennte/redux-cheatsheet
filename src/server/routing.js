@@ -15,6 +15,7 @@ import {
   todoListPage,
   chatPage,
   helloEndpoint,
+  loginEndpoint,
 } from './controller';
 
 import {
@@ -24,6 +25,7 @@ import {
   TODO_LIST_PAGE_ROUTE,
   CHAT_PAGE_ROUTE,
   helloEndpointRoute,
+  loginEndpointRoute,
 } from '../shared/routes';
 
 import renderApp from './render-app';
@@ -51,6 +53,10 @@ export default (app: Object) => {
 
   app.get(helloEndpointRoute(), (req, res) => {
     res.json(helloEndpoint(req.params.num));
+  });
+
+  app.post(loginEndpointRoute(), (req, res) => {
+    res.json(loginEndpoint(req.params.userName));
   });
 
   app.get('/500', () => {

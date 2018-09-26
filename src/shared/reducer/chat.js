@@ -1,7 +1,7 @@
 // @flow
 
 const chatMessage = (
-  state: string = [],
+  state: any = [],
   action: { type: string, payload: any },
 ) => {
   switch (action.type) {
@@ -13,7 +13,8 @@ const chatMessage = (
       }];
     case 'APP/CHAT/ADD_MESSAGE':
       return [...state, {
-        message: action.payload.message,
+        message: action.payload.message.message,
+        userName: action.payload.message.userName,
         id: state.length,
         user: action.payload.user,
       }];

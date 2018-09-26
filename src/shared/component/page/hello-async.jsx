@@ -3,8 +3,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
-import HelloAsyncButton from '../../container/hello/HelloButtonAsync';
-import MessageAsync from '../../container/hello/MessageAsync';
+import LoginForm from '../../container/login/form';
 
 const title = 'Async Hello Page';
 
@@ -18,8 +17,7 @@ const HelloAsyncPage = () => (
       ]}
     />
     <h2>{title}</h2>
-    <MessageAsync />
-    <HelloAsyncButton />
+    <LoginForm />
   </div>
 );
 

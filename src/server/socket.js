@@ -55,7 +55,6 @@ const setUpSocket = (io: Object) => {
         user: socket.id,
         message: msg,
       };
-      console.log(`chat message: ${chatMessage}`);
       io.emit('chat message', chatMessage);
     });
 
@@ -63,6 +62,7 @@ const setUpSocket = (io: Object) => {
       const chatMessage = {
         user: socket.id,
         status: msg.status,
+        userName: msg.userName,
       };
       socket.broadcast.emit('is typing', chatMessage);
     });

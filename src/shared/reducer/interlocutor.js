@@ -3,6 +3,7 @@
 const interlocutor = (
   state: string = {
     user: {
+      userName: '',
       id: '',
       isTyping: false,
     },
@@ -13,6 +14,7 @@ const interlocutor = (
     case 'APP/CHAT/INTELOCUTOR_TYPING':
       return {
         user: action.payload.user,
+        userName: action.payload.userName,
         status: action.payload.status,
       };
     default:
