@@ -11,7 +11,8 @@ import {
 } from '../shared/config';
 import actionCreators from '../shared/action/index';
 
-const socket = socketIOClient('http://localhost:8000');
+const host = typeof window === 'undefined' ? 'http://localhost:8000' : window.location.host;
+const socket = socketIOClient(host);
 
 /* eslint-disable no-console */
 // eslint-disable-next-line no-unused-vars
