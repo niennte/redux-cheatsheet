@@ -61,7 +61,18 @@ export const sayHelloAsync = (num: number) => (dispatch: Function) => {
 
 export const loginUser = (userName: string) => (dispatch: Function) => {
   dispatch(actionCreators.app.hello.async.request());
-  return fetch(loginEndpointRoute(userName), { method: 'POST' })
+  return fetch(loginEndpointRoute(userName), {
+    method: 'POST',
+    headers: {
+      // Check what headers the API needs. A couple of usuals right below
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      userName,
+      password: '',
+    }),
+  })
     .then((res) => {
       if (!res.ok) throw Error(res.statusText);
       return res.json();

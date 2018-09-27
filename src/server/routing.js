@@ -56,7 +56,7 @@ export default (app: Object) => {
   });
 
   app.post(loginEndpointRoute(), (req, res) => {
-    res.json(loginEndpoint(req.params.userName));
+    res.json(loginEndpoint(req.body.userName));
   });
 
   app.get('/500', () => {

@@ -2,6 +2,7 @@
 
 import compression from 'compression';
 import express from 'express';
+import bodyParser from 'body-parser';
 import { Server } from 'http';
 import socketIO from 'socket.io';
 
@@ -24,6 +25,7 @@ setUpSocket(io);
 app.use(compression());
 app.use(STATIC_PATH, express.static('dist'));
 app.use(STATIC_PATH, express.static('public'));
+app.use(bodyParser.json());
 
 routing(app);
 
