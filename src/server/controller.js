@@ -30,11 +30,9 @@ export const helloEndpoint = (num: number) => ({
   serverMessage: `Hello from the server! (received ${num})`,
 });
 
-export const loginEndpoint = (userName: string) => {
-  return ({
-    login: {
-      userName,
-      loggedIn: true,
-    },
-  });
-};
+export const loginEndpoint = (userName: string) => ({
+  login: {
+    userName,
+    loggedIn: true,
+  },
+});

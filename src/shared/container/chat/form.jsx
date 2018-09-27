@@ -28,9 +28,10 @@ class ChatForm extends React.Component<Props> {
   }
 
   emitCancelUserIsTyping() {
-    const { userName } = this.state;
-    if (!this.state.userIsTyping) {
-      this.props.dispatch(emitIsTyping({
+    const { userName, userIsTyping } = this.state;
+    const { dispatch } = this.props;
+    if (!userIsTyping) {
+      dispatch(emitIsTyping({
         status: false,
         userName,
       }));
@@ -38,7 +39,8 @@ class ChatForm extends React.Component<Props> {
   }
 
   handleKeyUp() {
-    window.clearTimeout(this.state.timeout);
+    const { timeout } = this.state;
+    window.clearTimeout(timeout);
     this.setState({
       userIsTyping: false,
       timeout: window.setTimeout(this.emitCancelUserIsTyping, 1000),
@@ -46,20 +48,22 @@ class ChatForm extends React.Component<Props> {
   }
 
   handleKeyDown() {
-    const { userName } = this.state;
-    window.clearTimeout(this.state.timeout);
+    const { userName, timeout } = this.state;
+    const { dispatch } = this.props;
+    window.clearTimeout(timeout);
     this.setState({
       userIsTyping: true,
       timeout: null,
     });
-    this.props.dispatch(emitIsTyping({
+    dispatch(emitIsTyping({
       status: true,
       userName,
     }));
   }
 
   handleSubmit() {
-    window.clearTimeout(this.state.timeout);
+    const { timeout } = this.state;
+    window.clearTimeout(timeout);
     this.setState({
       userIsTyping: false,
     });

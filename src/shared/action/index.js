@@ -3,8 +3,7 @@
 import { createActions } from 'redux-actions';
 import 'isomorphic-fetch';
 
-import { helloEndpointRoute } from '../routes';
-import { loginEndpointRoute } from '../routes';
+import { helloEndpointRoute, loginEndpointRoute } from '../routes';
 import { socket } from '../../client/socket';
 
 const actionCreators = createActions({

@@ -25,7 +25,6 @@ const styles = {
 type Props = {
   messages: List,
   userId: string,
-  userName: ?string,
   classes: Object,
   interlocutor: Object,
 };
@@ -33,7 +32,6 @@ type Props = {
 const mapStateToProps = state => ({
   messages: state.chat,
   userId: state.user.id,
-  userName: state.user.userName,
   interlocutor: {
     user: state.interlocutor.user,
     userName: state.interlocutor.userName,

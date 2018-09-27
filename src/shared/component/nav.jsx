@@ -30,9 +30,9 @@ export default class NavbarReactstrap extends React.Component {
   }
 
   toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen,
-    });
+    this.setState(prevState => (
+      { isOpen: prevState.isOpen }
+    ));
   }
 
   render() {

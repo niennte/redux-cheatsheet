@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { BrowserRouter } from 'react-router-dom';
-import setUpSocket, { socket } from './socket';
+import setUpSocket from './socket';
 
 import reducers from '../shared/reducer';
 import App from '../shared/App';

@@ -35,7 +35,7 @@ const HomePage = ({ classes }: { classes: Object }) => (
     <h3 className="mb-3">JSS</h3>
     <p className={classes.hoverMe}>Hover me.</p>
     <p className={classes.resizeMe}>Resize the window.</p>
-    <button className={classes.specialButton}>Composition</button>
+    <button type="button" className={classes.specialButton}>Composition</button>
   </Fragment>
 );
 export default injectSheet(styles)(HomePage);
